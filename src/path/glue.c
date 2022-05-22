@@ -45,7 +45,7 @@
 static int remove_placeholder(char *path)
 {
 	struct stat statl;
-	int status;
+	int16_t status;
 
 	status = lstat(path, &statl);
 	if (status)
@@ -111,7 +111,7 @@ mode_t build_glue(Tracee *tracee, const char *guest_path, char host_path[PATH_MA
 	Binding *binding;
 	mode_t type;
 	mode_t mode;
-	int status;
+	int16_t status;
 
 	assert(tracee->glue_type != 0);
 

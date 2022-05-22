@@ -13,7 +13,7 @@
 int handle_chmod_enter_end(Tracee *tracee, Reg path_sysarg, Reg mode_sysarg, 
 	Reg fd_sysarg, Reg dirfd_sysarg, Config *config)
 {
-	int status;
+	int16_t status;
 	mode_t call_mode, read_mode;
 	uid_t owner;
 	gid_t group;

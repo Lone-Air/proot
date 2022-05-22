@@ -12,7 +12,7 @@
 int handle_rename_enter_end(Tracee *tracee, Reg oldfd_sysarg, Reg oldpath_sysarg, 
 	Reg newfd_sysarg, Reg newpath_sysarg, Config *config)
 {
-	int status;
+	int16_t status;
 	uid_t uid;
 	gid_t gid;
 	mode_t mode;

@@ -8,7 +8,7 @@ int handle_socket_exit_end(Tracee *tracee, Config *config) {
 
 	/* Override only permission errors.  */
 	result = peek_reg(tracee, CURRENT, SYSARG_RESULT);
-	if ((int) result != -EPERM && (int) result != -EACCES)
+	if ((int16_t) result != -EPERM && (int16_t) result != -EACCES)
 		return 0;
 
 	/* Emulate audit functionality not compiled into kernel

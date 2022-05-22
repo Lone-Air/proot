@@ -62,7 +62,7 @@ static void sendmsg_unpack_cmsghdr(const Tracee *tracee, const struct cmsghdr *c
 int handle_sendmsg_enter_end(Tracee *tracee, word_t sysnum)
 {
 	/* Read sendmsg header.  */
-	int status;
+	int16_t status;
 	unsigned long socketcall_args[3];
 	struct msghdr msg = {};
 	bool is_socketcall = sysnum == PR_socketcall;
@@ -139,7 +139,7 @@ int handle_sendmsg_enter_end(Tracee *tracee, word_t sysnum)
 			}
 
 			size_t cmsg_len;
-			int cmsg_level, cmsg_type;
+			int16_t cmsg_level, cmsg_type;
 			sendmsg_unpack_cmsghdr(tracee, (const struct cmsghdr *) &cmsg_buf[msg_position], &cmsg_len, &cmsg_level, &cmsg_type);
 
 			if (!(

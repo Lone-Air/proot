@@ -1,6 +1,8 @@
 #ifndef SHARED_H
 #define SHARED_H
 
-extern int port_switch_base;
+#include <stdint.h>
+
+extern unsigned short port_switch_base;
 
 #endif

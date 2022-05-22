@@ -137,7 +137,7 @@ static inline int substitute_binding_stat(Tracee *tracee, Finality finality, uns
 					const char guest_path[PATH_MAX], char host_path[PATH_MAX])
 {
 	struct stat statl;
-	int status;
+	int16_t status;
 
 	strcpy(host_path, guest_path);
 	status = substitute_binding(tracee, GUEST, host_path);
@@ -193,7 +193,7 @@ int canonicalize(Tracee *tracee, const char *user_path, bool deref_final,
 	char scratch_path[PATH_MAX];
 	Finality finality;
 	const char *cursor;
-	int status;
+	int16_t status;
 
 	/* Avoid infinite loop on circular links.  */
 	if (recursion_level > MAXSYMLINKS)

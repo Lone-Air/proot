@@ -17,7 +17,7 @@
 int handle_open_enter_end(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, 
 	Reg flags_sysarg, Reg mode_sysarg, Config *config)
 {   
-	int status, perms, access_mode;
+	int16_t status, perms, access_mode;
 	char orig_path[PATH_MAX];
 	char rel_path[PATH_MAX];
 	char meta_path[PATH_MAX];

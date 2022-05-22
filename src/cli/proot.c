@@ -36,7 +36,7 @@
 #include "build.h"
 #include "cli/proot.h"
 
-port_switch_base=2000;
+unsigned short port_switch_base=2000;
 
 static int handle_option_r(Tracee *tracee, const Cli *cli UNUSED, const char *value)
 {

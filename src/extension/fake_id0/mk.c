@@ -10,7 +10,7 @@
 int handle_mk_enter_end(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, 
 	Reg mode_sysarg, Config *config)
 {
-	int status;
+	int16_t status;
 	mode_t mode;
 	char orig_path[PATH_MAX];
 	char rel_path[PATH_MAX];

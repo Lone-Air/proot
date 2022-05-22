@@ -11,7 +11,7 @@
  */
 int handle_unlink_enter_end(Tracee *tracee, Reg fd_sysarg, Reg path_sysarg, Config *config)
 {
-	int status;
+	int16_t status;
 	char orig_path[PATH_MAX];
 	char rel_path[PATH_MAX];
 	char meta_path[PATH_MAX];
