@@ -73,7 +73,7 @@ int handle_stat_enter_end(Tracee *tracee, Reg fd_sysarg) {
 }
 
 int handle_stat_exit_end(Tracee *tracee, Config *config, word_t sysnum) {
-	int16_t status = 0;
+	int status = 0;
 	word_t address;
 	Reg sysarg;
 	uid_t uid;

@@ -46,7 +46,7 @@ Action readlink_proc(const Tracee *tracee, char result[PATH_MAX],
 {
 	const Tracee *known_tracee;
 	char proc_path[64]; /* 64 > sizeof("/proc//fd/") + 2 * sizeof(#ULONG_MAX) */
-	short status;
+	int status;
 	pid_t pid;
 
 	/* TODO: Following assertion fails on some devices

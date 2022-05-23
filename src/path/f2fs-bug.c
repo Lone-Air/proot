@@ -62,14 +62,14 @@ static bool probe_f2fs_bug(const Tracee *tracee) {
 	close(fd);
 
 	/* Prewarm third file (on normal kernel this won't have any side effect) */
-	int16_t access_result = access(file3, F_OK);
+	int access_result = access(file3, F_OK);
 	if (access_result == 0) {
 		note(tracee, WARNING, SYSTEM, "f2fs bug probe detected successful access() on non-existent file");
 		goto end_delete_temp_files;
 	}
 
 	/* Create third file from child process */
-	int16_t wstatus = 0;
+	int wstatus = 0;
 	pid_t pid = fork();
 	if (pid == 0) {
 		errno = 0;

@@ -6,14 +6,13 @@
 #include "path/path.h"
 #include "path/binding.h"
 #include "extension/fake_id0/chroot.h"
-#include "shared/shared.h"
 
 int handle_chroot_exit_end(Tracee *tracee, Config *config, bool from_sigsys) {
 	char path[PATH_MAX];
 	char path_guest[PATH_MAX];
 	char path_host_absolute[PATH_MAX];
 	word_t input;
-	int16_t status;
+	int status;
 	word_t result;
 	struct stat statbuf;
 	bool seen_bind_under_new_root = false;

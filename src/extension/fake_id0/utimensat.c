@@ -15,7 +15,7 @@
 int handle_utimensat_enter_end(Tracee *tracee, Reg dirfd_sysarg, 
 	Reg path_sysarg, Reg times_sysarg, Config *config)
 {
-	int16_t status, perms, fd;
+	int status, perms, fd;
 	struct timespec times[2];
 	mode_t ignore_m;
 	uid_t owner;

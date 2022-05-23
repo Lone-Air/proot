@@ -70,11 +70,11 @@ int path_exists(char path[PATH_MAX])
 
 int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg, RegVersion version)
 {
-	int16_t status;
+	int status;
 
 	if(fd_sysarg != IGNORE_SYSARG) {
 		// AT_CWD translates to -100, so replace it with a canonicalized version
-		if((signed short) peek_reg(tracee, version, fd_sysarg) == -100) 
+		if((signed int) peek_reg(tracee, version, fd_sysarg) == -100) 
 			status = getcwd2(tracee, path);
 
 		else {
@@ -102,7 +102,7 @@ int get_fd_path(Tracee *tracee, char path[PATH_MAX], Reg fd_sysarg, RegVersion v
 
 int read_sysarg_path(Tracee *tracee, char path[PATH_MAX], Reg path_sysarg, RegVersion version)
 {
-	size_t size;
+	int size;
 	char original[PATH_MAX];
 	/** Current is already canonicalized. . Modified is used here
 	 *  for exit calls because on ARM architectures, the result to a system
@@ -166,13 +166,13 @@ char * get_name(char path[PATH_MAX])
  */
 int get_permissions(char meta_path[PATH_MAX], Config *config, bool uses_real)
 {
-	int16_t perms;
-	int16_t omode;
+	int perms;
+	int omode;
 	mode_t mode;
 	uid_t owner, emulated_uid;
 	gid_t group, emulated_gid;
 
-	int16_t status = read_meta_file(meta_path, &mode, &owner, &group, config);
+	int status = read_meta_file(meta_path, &mode, &owner, &group, config);
 	if(status < 0)
 		return status;
 
@@ -217,7 +217,7 @@ int get_permissions(char meta_path[PATH_MAX], Config *config, bool uses_real)
  */
 int check_dir_perms(Tracee *tracee, char type, char path[PATH_MAX], char rel_path[PATH_MAX], Config *config)
 {
-	int16_t status, perms;
+	int status, perms;
 	char meta_path[PATH_MAX];
 	char shorten_path[PATH_MAX];
 	int x = 1; 

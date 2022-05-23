@@ -458,7 +458,7 @@ Binding *new_binding(Tracee *tracee, const char *host, const char *guest, bool m
 {
 	Binding *binding;
 	char base[PATH_MAX];
-	int16_t status;
+	int status;
 
 	/* Lasy allocation of the list of bindings specified by the
 	 * user.  This list will be used by initialize_bindings().  */
@@ -531,7 +531,7 @@ static void initialize_binding(Tracee *tracee, Binding *binding)
 {
 	char path[PATH_MAX];
 	struct stat statl;
-	int16_t status;
+	int status;
 
 	/* All bindings but "/" must be canonicalized.  The exception
 	 * for "/" is required to bootstrap the canonicalization.  */
@@ -603,7 +603,7 @@ static void add_induced_bindings(Tracee *tracee, const Binding *new_binding)
 {
 	Binding *old_binding;
 	char path[PATH_MAX];
-	int16_t status;
+	int status;
 
 	/* Only for reconfiguration.  */
 	if (tracee->reconf.tracee == NULL)

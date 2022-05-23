@@ -11,7 +11,7 @@
 int handle_symlink_enter_end(Tracee *tracee, Reg oldpath_sysarg,
 	Reg newdirfd_sysarg, Reg newpath_sysarg, Config *config)
 {
-	int16_t status;
+	int status;
 	char oldpath[PATH_MAX];
 	char newpath[PATH_MAX];
 	char rel_newpath[PATH_MAX];

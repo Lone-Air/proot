@@ -30,7 +30,7 @@ int handle_getsockopt_exit_end(Tracee *tracee) {
 
 		struct ucred cred;
 		word_t cred_addr = peek_reg(tracee, ORIGINAL, SYSARG_4);
-		int16_t status = read_data(tracee, &cred, cred_addr, sizeof(struct ucred));
+		int status = read_data(tracee, &cred, cred_addr, sizeof(struct ucred));
 		if (status) return 0;
 		Config *peer_config = get_fake_id_for_pid(cred.pid);
 		if (peer_config == NULL) return 0;

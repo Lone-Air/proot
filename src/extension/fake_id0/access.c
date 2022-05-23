@@ -5,15 +5,13 @@
 #include "extension/fake_id0/access.h"
 #include "extension/fake_id0/helper_functions.h"
 
-#include "shared/shared.h"
-
 /** Handles the access and faccessat syscalls. Checks permissions according to
  *  a meta file if it exists. See access(2) for returned errors.
  */
 int handle_access_enter_end(Tracee *tracee, Reg path_sysarg,
 	Reg mode_sysarg, Reg dirfd_sysarg, Config *config)
 {
-	int16_t status, mode, perms, mask;
+	int status, mode, perms, mask;
 	char path[PATH_MAX];
 	char rel_path[PATH_MAX];
 	char meta_path[PATH_MAX];

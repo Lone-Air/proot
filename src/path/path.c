@@ -52,7 +52,7 @@ int join_paths(int number_paths, char result[PATH_MAX], ...)
 {
 	va_list paths;
 	size_t length;
-	short status;
+	int status;
 	int i;
 
 	result[0] = '\0';
@@ -121,7 +121,7 @@ int which(Tracee *tracee, const char *paths, char host_path[PATH_MAX], const cha
 	char path[PATH_MAX];
 	const char *cursor;
 	struct stat statr;
-	short status;
+	int status;
 
 	bool is_explicit;
 	bool found;
@@ -225,7 +225,7 @@ not_found:
  */
 int realpath2(Tracee *tracee, char host_path[PATH_MAX], const char *path, bool deref_final)
 {
-	short status;
+	int status;
 
 	if (tracee == NULL)
 		status = (realpath(path, host_path) == NULL ? -errno : 0);
@@ -287,7 +287,7 @@ void chop_finality(char *path)
 int readlink_proc_pid_fd(pid_t pid, int fd, char path[PATH_MAX])
 {
 	char link[32]; /* 32 > sizeof("/proc//cwd") + sizeof(#ULONG_MAX) */
-	short status;
+	int status;
 
 	/* Format the path to the "virtual" link. */
 	status = snprintf(link, sizeof(link), "/proc/%d/fd/%d",	pid, fd);
@@ -319,7 +319,7 @@ int translate_path(Tracee *tracee, char result[PATH_MAX], int dir_fd,
 		const char *user_path, bool deref_final)
 {
 	char guest_path[PATH_MAX];
-	short status;
+	int status;
 
 	/* Use "/" as the base if it is an absolute guest path. */
 	if (user_path[0] == '/') {
@@ -603,7 +603,7 @@ static int foreach_fd(const Tracee *tracee, foreach_fd_t callback)
 	struct dirent *dirent;
 	char path[PATH_MAX];
 	char proc_fd[32]; /* 32 > sizeof("/proc//fd") + sizeof(#ULONG_MAX) */
-	short status;
+	int status;
 	DIR *dirp;
 
 	/* Format the path to the "virtual" directory. */

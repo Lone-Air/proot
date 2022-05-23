@@ -33,7 +33,7 @@ int handle_chown_enter_end(Tracee *tracee, Config *config, Reg uid_sysarg, Reg g
 int handle_chown_enter_end(Tracee *tracee, Reg path_sysarg, Reg owner_sysarg,
 	Reg group_sysarg, Reg fd_sysarg, Reg dirfd_sysarg, Config *config)
 {
-	int16_t status;
+	int status;
 	mode_t mode;
 	uid_t owner, read_owner;
 	gid_t group, read_group;

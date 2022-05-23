@@ -6,14 +6,12 @@
 
 #include "extension/fake_id0/helper_functions.h"
 
-#include "shared/shared.h"
-
 /** Handles execve system calls. Checks permissions in a meta file if it exists
  *  and returns errors matching those in execve(2).
  */
 int handle_exec_enter_end(Tracee *tracee, Reg filename_sysarg, Config *config)
 {
-	int16_t status, perms;
+	int status, perms;
 	char path[PATH_MAX];
 	char meta_path[PATH_MAX];
 	uid_t uid;

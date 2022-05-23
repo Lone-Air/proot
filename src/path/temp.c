@@ -60,7 +60,7 @@ static int clean_temp_cwd()
 	char *prefix = NULL;
 	int nb_errors = 0;
 	DIR *dir = NULL;
-	short status;
+	int status;
 
 	prefix = talloc_size(NULL, length_temp_directory + 1);
 	if (prefix == NULL) {
@@ -169,7 +169,7 @@ end:
 static int remove_temp_directory2(const char *path)
 {
 	int result;
-	short status;
+	int status;
 	char *cwd;
 
 #ifdef __ANDROID__
@@ -242,7 +242,7 @@ static int remove_temp_directory(char *path)
  */
 static int remove_temp_file(char *path)
 {
-	short status;
+	int status;
 
 	status = unlink(path);
 	if (status < 0)
